@@ -1,0 +1,7 @@
+{
+    "Parameters"    :   {
+        "VPCName"   :   "VPCDemo",
+        "AvailabilityZone1"     :   "us-east-1b",
+        "AvailabilityZone2"     :   "us-east-1c" 
+    }
+}
