@@ -1,13 +1,7 @@
-[{
-    "ParameterKey"  :   "VPCName",
-    "ParameterValue" :   "root"
-},
 {
-    "ParameterKey"  :   "AvailabilityZone1",
-    "ParameterValue" :   "us-east-1b"
-},
-{
-"ParameterKey"  :   "AvailabilityZone2",
-"ParameterValue" :   "us-east-1c"       
+    "Parameters" : {
+        "VPCName": "root",
+        "AvailabilityZone1":    "us-east-1b",
+        "AvailabilityZone2":    "us-east-1c"
 }
-]
+}
