@@ -11,12 +11,12 @@ Parameters:
     Type: String
     Default: 10.0.0.0/16
     AllowedPattern: '((\d{1,3})\.){3}\d{1,3}/\d{1,2}'
-  AvailabilityZone1:
-    Description: The AvailabilityZone to use for the first subnet
-    Type: AWS::EC2::AvailabilityZone::Name
-  AvailabilityZone2:
-    Description: The AvailabilityZone to use for the second subnet
-    Type: AWS::EC2::AvailabilityZone::Name
+#  AvailabilityZone1:
+#    Description: The AvailabilityZone to use for the first subnet
+#    Type: AWS::EC2::AvailabilityZone::Name
+#  AvailabilityZone2:
+#    Description: The AvailabilityZone to use for the second subnet
+#    Type: AWS::EC2::AvailabilityZone::Name
   SubnetCIDR1:
     AllowedPattern: '((\d{1,3})\.){3}\d{1,3}/\d{1,2}'
     Default: 10.0.0.0/24
@@ -67,7 +67,10 @@ Resources:
   Subnet1:
     Type: AWS::EC2::Subnet
     Properties:
-      AvailabilityZone: !Ref AvailabilityZone1
+      AvailabilityZone:
+         ! Select:
+            - 0
+            - ! GetAZs
       CidrBlock: !Ref SubnetCIDR1
       MapPublicIpOnLaunch: true
       Tags:
@@ -80,7 +83,10 @@ Resources:
   Subnet2:
     Type: AWS::EC2::Subnet
     Properties:
-      AvailabilityZone: !Ref AvailabilityZone2
+      AvailabilityZone:
+         ! Select:
+            - 1
+            - ! GetAZs
       CidrBlock: !Ref SubnetCIDR2
       MapPublicIpOnLaunch: true
       Tags:
